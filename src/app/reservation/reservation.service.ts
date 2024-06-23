@@ -36,7 +36,7 @@ export class ReservationService {
   }
 
   // Update an existing reservation
-  updateReservation(id: string, updatedReservation: Partial<Omit<Reservation, 'id'>>): Reservation | null {
+  patchReservation(id: string, updatedReservation: Partial<Omit<Reservation, 'id'>>): Reservation | null {
     const index = this.reservations.findIndex(reservation => reservation.id === id);
     if (index !== -1) {
       this.reservations[index] = {...this.reservations[index], ...updatedReservation};
