@@ -1,5 +1,18 @@
 <div class="card gap-2 m-5 p-5 shadow">
-  <input class="form-control"  placeholder="dsa">
+  <input [(ngModel)]="newBook.author" class="form-control" placeholder="author">
+  <input [(ngModel)]="newBook.title" class="form-control" placeholder="title">
 
   <button class="btn btn-primary" (click)="addBook()">Add</button>
 </div>
+
+<h1 class="text-center">Books</h1>
+
+<ul class="list-group m-5 gap-2">
+
+  <li
+    class="list-group-item"
+    *ngFor="let book of books; index as i">
+    {{ i }} : {{ book.title }} - {{ book.author }}
+    <button class="btn btn-danger" (click)="remove(i)">remove</button>
+  </li>
+</ul>

@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Book} from "../models/book";
 import {FormsModule} from "@angular/forms";
 import {DatePipe, NgForOf, NgIf} from '@angular/common';
+import {Appointment} from "../models/appointment";
 
 @Component({
   selector: 'app-appoint-list',
@@ -14,7 +15,7 @@ export class AppointListComponent implements OnInit {
 
   private _appointmentsKey = "appointments"
 
-  private _appointments: Book[] = [{
+  private _appointments: Appointment[] = [{
     id: "1",
     title: "Get a 1",
     date: new Date()
@@ -30,7 +31,7 @@ export class AppointListComponent implements OnInit {
     this.appointments = this.loadFromLocalStorage();
   }
 
-  newAppointment: Book = {
+  newAppointment: Appointment = {
     id: "",
     title: "",
     date: new Date()
