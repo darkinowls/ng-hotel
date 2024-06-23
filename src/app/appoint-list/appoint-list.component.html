@@ -1,9 +1,23 @@
-<ul class="flex-column">
-  <li>a</li>
-  <li>b</li>
-  <li>c</li>
-  {{appointment | json}}
+<div class="card gap-1 m-5 p-5 justify-content-center  shadow">
+  <input class="form-control" [(ngModel)]="newAppointment.title" placeholder="title">
+  <input class="form-control" [(ngModel)]="newAppointment.date" type="date" placeholder="date">
+  <button class="btn btn-primary" (click)="add()">Add</button>
+  <button class="btn btn-primary" (click)="insert(1)">insert</button>
+</div>
 
-  <button (click)=trigerEvent>Add</button>
+<h1 class="text-center" >Appointments</h1>
+
+<ul class="list-group m-5 gap-2">
+
+  <li
+    class="list-group-item"
+    *ngFor="let appointment of appointments; index as i">
+    {{ i }} : {{ appointment.title }} - {{ appointment.date | date: 'dd/MM/yyyy' }}
+    <button class="btn btn-danger" (click)="delete(i)">remove</button>
+  </li>
+
+
+  <div *ngIf="appointments.length === 0">No appointments</div>
+
 
 </ul>
